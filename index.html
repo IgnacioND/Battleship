@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="background">
+    <div class="battleship-silouette"></div>
+    <div class="battleship-silouette2"></div>
+  </div>
+
+  <div id="top-part">
+    <div id="radar-container">
+      <div id="radar-outside">
+          <div id="radar-background">
+              <div id="radar-grid">
+              <div id="radar-inner-lines">
+                  <div class="dot dot1"></div> 
+                  <div class="dot dot2"></div>
+                  <div class="dot dot3"></div>
+                  <div class="dot dot4"></div>
+                  <div class="dot dot5"></div>
+                  <div class="dot dot6"></div>
+                  <div class="dot dot7"></div>
+                  <div class="dot dot8"></div>
+                  <div class="dot dot9"></div>
+                  <div id="radar-scan"></div>
+              </div>
+          </div>
+          </div>
+      </div> 
+      </div>
+    <button id="all-ready">All ready</button>
+  </div>
+
+  <div id="bottom-part">
+    <div class="menu" id='boats-menu'>
+
+        <div class="carrier shadow" id="carrier"draggable="true"
+        ondragstart="onDragStart(event)"
+        onmouseup="onClickEvent(event);">
+            <div class="carrier-part carrier-base"></div>
+            <div class="carrier-part shadow">
+            <div class="carrier-part carrier-platform"></div>
+            <div class="carrier-lines1"></div>
+            <div class="carrier-lines2"></div>
+            <div class="carrier-lines3"></div>
+        </div>
+            </div>
+        <div class="battleship shadow" id="battleship"draggable="true"
+        ondragstart="onDragStart(event)"
+        onmouseup="onClickEvent(event);">
+            <div class="battleship-part battleship-base shadow"></div>
+            <div class="battleship-part shadow">
+            <div class=" battleship-part battleship-heliport shadow"></div>
+            <div class="battleship-part shadow">
+            <div class=" battleship-part battleship-helicopter"></div>
+            <div class=" battleship-part battleship-cover"></div>
+            <div class=" battleship-part battleship-antena"></div>
+            <div class=" battleship-part battleship-front"></div>
+            <div class="battleship-part shadow">
+            <div class=" battleship-part battleship-cannon"></div>
+        </div>
+        </div>
+        </div>
+            </div>
+        <div class="cruiser shadow" id="cruiser"draggable="true"
+        ondragstart="onDragStart(event)"
+        onmouseup="onClickEvent(event);">
+            <div class="cruiser-part cruiser1"></div>
+            <div class="cruiser-part shadow">
+            <div class="cruiser-part cruiser2"></div>
+            <div class="cruiser-part shadow">
+            <div class="cruiser-part cruiser3"></div>
+            <div class="cruiser-part shadow">
+            <div class="cruiser-part cruiser4"></div>
+        </div>
+        </div>
+        </div>
+            </div>
+        <div class="submarine shadow" id="submarine"draggable="true"
+        ondragstart="onDragStart(event)"
+        onmouseup="onClickEvent(event);">
+            <div class="submarine-part shadow">
+            <div class="submarine-part submarine1"></div>
+            <div class="submarine-part shadow">
+            <div class="submarine-part submarine2"></div>
+        </div>
+        </div>
+            </div>
+        <div class="destroyer shadow" id="destroyer"draggable="true"
+        ondragstart="onDragStart(event)"
+        onmouseup="onClickEvent(event);">
+            <div class="destroyer-part shadow">
+            <div class="destroyer-part destroyer1"></div>
+            <div class="destroyer-part shadow">
+            <div class="destroyer-part destroyer2"></div>
+            <div class="destroyer-part destroyer3"></div>
+        </div>
+        </div>
+            </div>
+  </div>
+  <div
+      class="user-grid-background";
+    >
+  <div
+      class="user-grid "
+      id="dropzone";
+    >
+    </div>
+  </div>
+
+  
+  <script src="index.js"></script>
+</body>
+</html>
