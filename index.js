@@ -13,6 +13,13 @@ allReady.addEventListener("click", getPositions);
 dropzone.addEventListener("dragover", onDragOver);
 dropzone.addEventListener("drop", onDrop);
 dropzone.addEventListener("mousemove", (event) => {});
+function addButtons() {
+  let buttonsArray = Array.from(document.getElementsByClassName("button"));
+  buttonsArray.forEach((element) => {
+    element.addEventListener("dragstart", onDragStart);
+    element.addEventListener("click", onClickEvent);
+  });
+}
 
 let boats = {
   carrier: {
@@ -76,6 +83,7 @@ let styles = {
 };
 
 function onDragStart(event) {
+  console.log(event.target.id)
   id = boats[event.target.id];
   htmlObj = document.querySelector(`#${id["name"]}`);
   event.dataTransfer.setData("text/plain", id);
@@ -138,7 +146,6 @@ function checkDropPosition() {
   );
 }
 function makeBoatArray() {
-  //debugger;
   id.array = [];
   let parcels = parseInt(id.sizeX) / 50;
   for (i = 0; i < parcels / 50; i++) {
@@ -146,34 +153,45 @@ function makeBoatArray() {
     let originY = id.oldPosY / 50;
     if (id.rotated) {
       for (let i = 0; i < parcels; i++) {
-        id.array.push(`${originX + i}${originY}`);
+        id.array.push(`${originX+i}${originY}`);
       }
     } else {
       for (let i = 0; i < parcels; i++) {
-        id.array.push(`${originX}${originY + i}`);
+        id.array.push(`${origin}${originY+i}`);
       }
     }
   }
 }
+
+
 function onClickEvent(event) {
-  id = boats[event.target.id];
-  htmlObj = document.querySelector(`#${id["name"]}`);
+  id = boats[event.currentTarget.id];
+  htmlObj = document.querySelector(`#${id["name"]}-body`);
+  htmlContainer = document.querySelector(`#${id["name"]}`);
   if (id["rotated"]) {
     id["rotated"] = false;
     htmlObj.classList.remove(`${id["name"]}R`);
     htmlObj.classList.add(`${id["name"]}`);
+    htmlContainer.classList.remove(`${id["name"]}-containerR`);
+    htmlContainer.classList.add(`${id["name"]}-container`);
     if (!checkDropPosition()) {
       htmlObj.classList.remove(`${id["name"]}`);
       htmlObj.classList.add(`${id["name"]}R`);
+      htmlContainer.classList.remove(`${id["name"]}-container`);
+    htmlContainer.classList.add(`${id["name"]}-containerR`);
       id["rotated"] = true;
     }
   } else {
     id["rotated"] = true;
     htmlObj.classList.remove(`${id["name"]}`);
     htmlObj.classList.add(`${id["name"]}R`);
+    htmlContainer.classList.remove(`${id["name"]}-container`);
+    htmlContainer.classList.add(`${id["name"]}-containerR`);
     if (!checkDropPosition()) {
       htmlObj.classList.remove(`${id["name"]}R`);
       htmlObj.classList.add(`${id["name"]}`);
+      htmlContainer.classList.remove(`${id["name"]}-containerR`);
+    htmlContainer.classList.add(`${id["name"]}-container`);
       id["rotated"] = false;
     }
   }
@@ -209,7 +227,7 @@ function paintErrors() {
   let boatsArray = Object.entries(boats);
   for (i = 0; i < boatsArray.length; i++) {
     let boatName = boatsArray[i][1].name;
-    let boatToApplyClass = document.querySelector(`#${boatName}`);
+    let boatToApplyClass = document.querySelector(`#${boatName}-body`);
     if (boatsArray[i][1].error) {
       boatToApplyClass.classList.add("red-border");
     } else {
@@ -245,12 +263,12 @@ function getPositions() {
     let boatParcels = [];
     if (boatsArray[i][1].rotated) {
       for (let i = 0; i < parcels; i++) {
-        boatParcels.push(`${originX + i}${originY}`);
+        boatParcels.push(`${originX}${originY+i}`);
       }
       putBoatInArray(playerOneArray, boatParcels, boatsArray[i][1].abbr);
     } else {
       for (let i = 0; i < parcels; i++) {
-        boatParcels.push(`${originX}${originY + i}`);
+        boatParcels.push(`${originX+i}${originY }`);
       }
       putBoatInArray(playerOneArray, boatParcels, boatsArray[i][1].abbr);
     }
@@ -264,3 +282,6 @@ function putBoatInArray(array, boatParcels, newContent) {
     array[row][column] = newContent;
   }
 }
+
+
+addButtons()
