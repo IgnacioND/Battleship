@@ -14,7 +14,7 @@ dropzone.addEventListener("dragover", onDragOver);
 dropzone.addEventListener("drop", onDrop);
 dropzone.addEventListener("mousemove", (event) => {});
 function addButtons() {
-  let buttonsArray = Array.from(document.getElementsByClassName("button"));
+  let buttonsArray = Array.from(document.getElementsByClassName("boat"));
   buttonsArray.forEach((element) => {
     element.addEventListener("dragstart", onDragStart);
     element.addEventListener("click", onClickEvent);
@@ -30,6 +30,7 @@ let boats = {
     oldPosX: 0,
     oldPosY: 0,
     array: [],
+    positioned: false,
     abbr: "ca",
     error: false,
   },
@@ -41,6 +42,7 @@ let boats = {
     oldPosX: 0,
     oldPosY: 0,
     array: [],
+    positioned: false,
     abbr: "ba",
     error: false,
   },
@@ -52,6 +54,7 @@ let boats = {
     oldPosX: 0,
     oldPosY: 0,
     array: [],
+    positioned: false,
     abbr: "cr",
     error: false,
   },
@@ -63,6 +66,7 @@ let boats = {
     oldPosX: 0,
     oldPosY: 0,
     array: [],
+    positioned: false,
     abbr: "su",
     error: false,
   },
@@ -74,6 +78,7 @@ let boats = {
     oldPosX: 0,
     oldPosY: 0,
     array: [],
+    positioned: false,
     abbr: "de",
     error: false,
   },
@@ -96,31 +101,36 @@ function onDragOver(event) {
 }
 function onDrop(event) {
   let target = event.target.id;
-  let htmlTarget = document.querySelector(`#${target}`);
-  finalPos = [event.pageX, event.pageY];
+  let htmlTarget
+  if (target !== ''){
+    htmlTarget = document.querySelector(`#${target}`);
+    finalPos = [event.pageX, event.pageY];
 
-  if (htmlTarget.parentNode == dropzone) {
-    totalX =
-      finalPos[0] -
-      dropzone.getBoundingClientRect().x -
-      pickPoint[0] +
-      id["oldPosX"];
-    totalY =
-      finalPos[1] -
-      pickPoint[1] +
-      id["oldPosY"] -
-      dropzone.getBoundingClientRect().y;
-  } else {
-    totalX =
-      Math.round((initialPos[0] - objCenter[0]) / parcelSize) * parcelSize;
-    totalY =
-      Math.round((initialPos[1] - objCenter[1]) / parcelSize) * parcelSize;
-  }
-  if (checkDropPosition()) {
-    moveObject(event);
-    makeBoatArray(event);
-    invalidPosition();
-    paintErrors();
+    if (htmlTarget.parentNode == dropzone) {
+      totalX =
+        finalPos[0] -
+        dropzone.getBoundingClientRect().x -
+        pickPoint[0] +
+        id["oldPosX"];
+      totalY =
+        finalPos[1] -
+        pickPoint[1] +
+        id["oldPosY"] -
+        dropzone.getBoundingClientRect().y;
+        
+    } else {
+      totalX =
+        Math.round((initialPos[0] - objCenter[0]) / parcelSize) * parcelSize;
+      totalY =
+        Math.round((initialPos[1] - objCenter[1]) / parcelSize) * parcelSize;
+    }
+    if (checkDropPosition()) {
+      moveObject(event);
+      id["positioned"] =true;
+      makeBoatArray(event);
+      invalidPosition();
+      paintErrors();
+    }
   }
 }
 function moveObject(event) {
@@ -153,11 +163,11 @@ function makeBoatArray() {
     let originY = id.oldPosY / 50;
     if (id.rotated) {
       for (let i = 0; i < parcels; i++) {
-        id.array.push(`${originX+i}${originY}`);
+        id.array.push(`${originX}${originY+i}`);
       }
     } else {
       for (let i = 0; i < parcels; i++) {
-        id.array.push(`${origin}${originY+i}`);
+        id.array.push(`${originX+i}${originY}`);
       }
     }
   }
@@ -165,7 +175,9 @@ function makeBoatArray() {
 
 
 function onClickEvent(event) {
+  
   id = boats[event.currentTarget.id];
+  if (!id["positioned"]){return}
   htmlObj = document.querySelector(`#${id["name"]}-body`);
   htmlContainer = document.querySelector(`#${id["name"]}`);
   if (id["rotated"]) {

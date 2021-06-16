@@ -22,14 +22,34 @@ body {
 }
 #top-part {
   display: flex;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+#top-part > * {
+  margin : 50px;
 }
 #bottom-part {
   display: flex;
+  height: 50vh;
+  justify-content: center;
+}
+#bottom-part > * {
+  margin : 40px 20px;
 }
 #all-ready {
-  background-color: grey;
   width: 100px;
   height: 100px;
+}
+#clear-board {
+  width: 100px;
+  height: 100px;
+}
+#play-game-button {
+  width: 500px;
+  height: 100px;
+  background-color: grey;
+  margin: 0 auto;
 }
 /**********
   RADAR
@@ -38,7 +58,7 @@ body {
 #radar-container {
   width: 400px;
   height: 400px;
-  transform: scale(1);
+  transform: scale(1.2);
 }
 #radar-outside {
   height: inherit;
@@ -163,12 +183,80 @@ body {
   background: radial-gradient(circle, #845ec2 0%, rgba(0, 0, 0, 1) 100%);
 }
 
-#play-game-button {
-  width: 500px;
-  height: 100px;
-  background-color: grey;
-  margin: 0 auto;
+
+
+/**********
+  BOATS INTERACTION
+**********/
+
+.menu {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
 }
+
+.boat:hover {
+  cursor: grab;
+}
+.red-border {
+  border: red 2px solid;
+}
+
+/**********
+  GRID
+**********/
+
+.user-grid {
+  background-size: 50px 50px;
+  width: 501px;
+  height: 501px;
+  background-image: linear-gradient(
+      to right,
+      rgba(23, 54, 87, 1) 2px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(23, 54, 87, 1) 2px, transparent 1px);
+}
+.user-grid-background {
+  box-sizing: content-box;
+  width: 501px;
+  height: 501px;
+  border: 10px rgba(23, 54, 87, 1) solid;
+  border-radius: 20px;
+  background: #845ec2;
+  background: radial-gradient(
+    circle,
+    rgba(185, 214, 214, 1) 0%,
+    rgba(51, 131, 148, 1) 100%
+  );
+
+}
+.enemy-grid {
+  background-size: 50px 50px;
+  width: 501px;
+  height: 501px;
+  background-image: linear-gradient(
+      to right,
+      rgba(23, 54, 87, 1) 2px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(23, 54, 87, 1) 2px, transparent 1px);
+}
+.enemy-grid-background {
+  box-sizing: content-box;
+  width: 501px;
+  height: 501px;
+  border: 10px rgba(23, 54, 87, 1) solid;
+  border-radius: 20px;
+  background: #845ec2;
+  background: radial-gradient(
+    circle,
+    rgba(185, 214, 214, 1) 0%,
+    rgba(51, 131, 148, 1) 100%
+  );
+}
+
+
 
 /**********
   BOATS
@@ -179,14 +267,14 @@ body {
 }
 
 .carrier-container {
-  transform: translateY(50px);
+  transform: translate(25px, 60px);
   position: absolute;
   width: 250px;
   height: 50px;
 
 }
 .carrier-containerR {
-  transform: translateY(50px);
+  transform: translate(50px, 60px);
   position: absolute;
   width: 50px;
   height: 250px;
@@ -346,13 +434,13 @@ body {
 }
 
 .battleship-container {
-  transform: translateY(100px);
+  transform: translate(50px,110px);
   position: absolute;
   width: 200px;
   height: 50px;
 }
 .battleship-containerR {
-  transform: translateY(100px);
+  transform: translate(50px, 110px);
   position: absolute;
   width: 50px;
   height: 200px;
@@ -843,13 +931,13 @@ body {
 }
 
 .cruiser-container{
-  transform: translateY(150px);
+  transform: translate(75px,160px);
   position: absolute;
   width: 150px;
   height: 50px;
 }
 .cruiser-containerR{
-  transform: translateY(150px);
+  transform: translate(75px,160px);
   position: absolute;
   width: 50px;
   height: 150px;
@@ -957,13 +1045,13 @@ body {
 }
 
 .submarine-container {
-  transform: translateY(200px);
+  transform: translate(75px,210px);
   position: absolute;
   width: 150px;
   height: 50px;
 }
 .submarine-containerR {
-  transform: translateY(200px);
+  transform: translate(75px,210px);
   position: absolute;
   width: 50px;
   height: 150px;
@@ -1044,13 +1132,13 @@ body {
 }
 
 .destroyer-container {
-  transform: translateY(250px);
+  transform: translate(100px,260px);
   position: absolute;
   width: 100px;
   height: 50px;
 }
 .destroyer-containerR {
-  transform: translateY(250px);
+  transform: translate(100px,260px);
   position: absolute;
   width: 50px;
   height: 100px;
@@ -1110,50 +1198,4 @@ body {
 .destroyer3 {
   background-color: #7955b3;
   clip-path: polygon(16% 38%, 16% 62%, 34% 70%, 34% 30%);
-}
-
-.menu {
-  background-color: grey;
-  width: 400px;
-  height: 500px;
-}
-.boat {
-  position: absolute;
-  background-color: #4aae9b;
-  font-weight: normal;
-  z-index: 10;
-}
-.boat:hover {
-  cursor: grab;
-}
-.user-grid {
-  background-size: 50px 50px;
-  width: 501px;
-  height: 501px;
-  background-image: linear-gradient(
-      to right,
-      rgba(23, 54, 87, 1) 2px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(23, 54, 87, 1) 2px, transparent 1px);
-  z-index: 20;
-}
-.user-grid-background {
-  box-sizing: content-box;
-  width: 501px;
-  height: 501px;
-  margin: 100px auto;
-  border: 10px rgba(23, 54, 87, 1) solid;
-  border-radius: 20px;
-  background: #845ec2;
-  background: radial-gradient(
-    circle,
-    rgba(185, 214, 214, 1) 0%,
-    rgba(51, 131, 148, 1) 100%
-  );
-
-  z-index: 20;
-}
-.red-border {
-  border: red 2px solid;
 }
