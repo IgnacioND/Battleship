@@ -87,6 +87,7 @@ let styles = {
   transform: "",
 };
 
+
 function onDragStart(event) {
   console.log(event.target.id)
   id = boats[event.target.id];
@@ -190,7 +191,7 @@ function onClickEvent(event) {
       htmlObj.classList.remove(`${id["name"]}`);
       htmlObj.classList.add(`${id["name"]}R`);
       htmlContainer.classList.remove(`${id["name"]}-container`);
-    htmlContainer.classList.add(`${id["name"]}-containerR`);
+      htmlContainer.classList.add(`${id["name"]}-containerR`);
       id["rotated"] = true;
     }
   } else {
@@ -203,7 +204,7 @@ function onClickEvent(event) {
       htmlObj.classList.remove(`${id["name"]}R`);
       htmlObj.classList.add(`${id["name"]}`);
       htmlContainer.classList.remove(`${id["name"]}-containerR`);
-    htmlContainer.classList.add(`${id["name"]}-container`);
+      htmlContainer.classList.add(`${id["name"]}-container`);
       id["rotated"] = false;
     }
   }

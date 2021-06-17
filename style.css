@@ -56,20 +56,18 @@ body {
 **********/
 
 #radar-container {
-  width: 400px;
-  height: 400px;
-  transform: scale(1.2);
-}
-#radar-outside {
-  height: inherit;
-  width: inherit;
-  border: #ffc75f 20px solid;
+  border: #ffc75f 1vw solid;
   border-radius: 50%;
+  width: 25vw;
+  height: 25vw;
+  display: grid;
+  }
+#radar-container > *{
+  grid-column: 1;
+  grid-row: 1;
 }
 #radar-scan {
-  position: inherit;
-  width: 360px;
-  height: 360px;
+
   border-radius: 50%;
   background: linear-gradient(230deg, #f9f871 00%, transparent 45.34%) 0 0;
   background-repeat: no-repeat;
@@ -79,15 +77,14 @@ body {
 }
 @keyframes radar-rotation {
   0% {
-    transform: translate(-0, -90px) rotate(0deg);
+    transform:rotate(0deg);
   }
   100% {
-    transform: translate(-0, -90px) rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 #radar-inner-lines {
-  width: 360px;
-  height: 360px;
+
   background: rgb(2, 0, 36);
   background: radial-gradient(
       circle,
@@ -110,48 +107,56 @@ body {
   border-radius: 50%;
 }
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 0.4vw;
+  height: 0.4vw;
   border-radius: 50%;
   background-color: #f9f871;
   animation: linear dotAnim 4s;
   animation-iteration-count: infinite;
 }
 .dot1 {
-  transform: translate(200px, 240px);
+  transform: translate(14vw, 17vw);
   animation-delay: 1.6s;
+  
 }
 .dot2 {
-  transform: translate(150px, 40px);
+  transform: translate(9vw, 3vw);
   animation-delay: 3.8s;
+
 }
 .dot3 {
-  transform: translate(40px, 240px);
+  transform: translate(7vw, 16vw);
   animation-delay: 2.4s;
+
 }
 .dot4 {
-  transform: translate(70px, 250px);
+  transform: translate(4vw, 18vw);
   animation-delay: 2.3s;
+  
 }
 .dot5 {
-  transform: translate(300px, 110px);
-  animation-delay: 0.5s;
+  transform: translate(20vw, 10vw);
+  animation-delay: 0.6s;
+
 }
 .dot6 {
-  transform: translate(100px, 160px);
+  transform: translate(6vw, 12vw);
   animation-delay: 2.6s;
+  
 }
 .dot7 {
-  transform: translate(180px, 260px);
+  transform: translate(12vw, 14vw);
   animation-delay: 1.7s;
+  
 }
 .dot8 {
-  transform: translate(230px, 10px);
+  transform: translate(14vw, 2vw);
   animation-delay: 0.2s;
+
 }
 .dot9 {
-  transform: translate(200px, 140px);
-  animation-delay: 1.5s;
+  transform: translate(12vw, 20vw);
+  animation-delay: 1.6s;
 }
 @keyframes dotAnim {
   0% {
@@ -168,21 +173,18 @@ body {
   }
 }
 #radar-grid {
-  height: 360px;
-  width: 360px;
+
   border-radius: 50%;
   background-image: linear-gradient(to right, #d65db1 1px, transparent 1px),
     linear-gradient(to bottom, #d65db1 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-size: 1vw 1vw;
 }
 #radar-background {
-  height: 360px;
-  width: 360px;
+
   border-radius: 50%;
   background: #845ec2;
   background: radial-gradient(circle, #845ec2 0%, rgba(0, 0, 0, 1) 100%);
 }
-
 
 
 /**********
@@ -255,7 +257,6 @@ body {
     rgba(51, 131, 148, 1) 100%
   );
 }
-
 
 
 /**********
@@ -1154,7 +1155,7 @@ body {
   position: relative;
   width: 100px;
   height: 50px;
-  transform-origin: 16.6% 50%;
+  transform-origin: 25% 50%;
 }
 .destroyer-part {
   position: absolute;
