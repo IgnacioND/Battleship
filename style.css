@@ -6,25 +6,20 @@
 html {
   min-height: 100%;
 }
-body {
-  background: rgb(204, 120, 120);
-  background: linear-gradient(
-    180deg,
-    rgba(204, 120, 120, 1) 0%,
-    rgba(252, 181, 159, 1) 19%,
-    rgba(250, 244, 182, 1) 50%,
-    rgba(185, 214, 214, 1) 50.1%,
-    rgba(51, 131, 148, 1) 81%,
-    rgba(23, 54, 87, 1) 100%
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 #top-part {
   display: flex;
   height: 50vh;
   justify-content: center;
   align-items: center;
+  background: rgb(204, 120, 120);
+  background: linear-gradient(
+    180deg,
+    rgba(204, 120, 120, 1) 0%,
+    rgba(252, 181, 159, 1) 50%,
+    rgba(250, 244, 182, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #top-part > * {
   margin : 50px;
@@ -33,24 +28,30 @@ body {
   display: flex;
   height: 50vh;
   justify-content: center;
+  background: rgb(204, 120, 120);
+  background: linear-gradient(
+    180deg,
+    rgba(185, 214, 214, 1) 0%,
+    rgba(51, 131, 148, 1) 50%,
+    rgba(23, 54, 87, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #bottom-part > * {
   margin : 40px 20px;
 }
-#all-ready {
-  width: 100px;
-  height: 100px;
-}
-#clear-board {
-  width: 100px;
-  height: 100px;
-}
-#play-game-button {
-  width: 500px;
-  height: 100px;
+.menu-buttons {
+  text-align: center;
+  width: 200px;
   background-color: grey;
-  margin: 0 auto;
+  font-size: 40px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+ .menu-buttons:hover{
+  background-color: red;
+}
+
 /**********
   RADAR
 **********/
@@ -203,12 +204,6 @@ body {
       rgba(45,250,255,0) 100%)
 }
 
-.ca, .ba, .cr, .su, .de{
-  width: 50px;
-  height: 50px;
-  background-color:red;
-  position: absolute;
-}
 /**********
   BOATS INTERACTION
 **********/
@@ -255,6 +250,7 @@ body {
 
 }
 .enemy-grid {
+  cursor: none;
   background-size: 50px 50px;
   width: 501px;
   height: 501px;
@@ -293,15 +289,13 @@ body {
 .shadow {
   filter: drop-shadow(8px 5px 6px rgba(7, 1, 10, 0.5));
 }
-.battleship-silouette {
+#battleship-silouetteP1 {
   margin: 0;
   position: absolute;
   top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-70%) translateX(50%);
   width: 400px;
   height: 100px;
-  background: linear-gradient(#100b18 80%, #9ab7b8 81%);
+  background-color: #100b18;
   clip-path: polygon(
     6% 64%,
     10% 79%,
@@ -482,16 +476,12 @@ body {
     6% 63%
   );
 }
-.battleship-silouette2 {
-  margin: 0 auto;
+#battleship-silouetteP2 {
   position: absolute;
   top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-80%) translateX(250%) scaleX(-1);
-
   width: 400px;
   height: 100px;
-  background: linear-gradient(#100b18 88%, #9ab7b8 81%);
+  background-color: #100b18;
   clip-path: polygon(
     2% 73%,
     2% 81%,
@@ -630,6 +620,46 @@ body {
     9% 70%,
     9% 73%
   );
+}
+.sink1{
+  animation: ease-in-out rotate1 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate1 {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(5deg)}
+}
+.sink2{
+  animation: ease-in-out rotate2 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate2 {
+  0%{transform: rotate(5deg)}
+  100%{transform: rotate(15deg)}
+}
+.sink3{
+  animation: ease-in-out rotate3 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate3 {
+  0%{transform: rotate(15deg)}
+  100%{transform: rotate(30deg)}
+}
+.sink4{
+  animation: ease-in-out rotate4 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate4 {
+  0%{transform: rotate(30deg)}
+  100%{transform: rotate(60deg)}
+}
+.sink5{
+  animation: ease-in-out rotate5 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate5 {
+  0%{transform: translate(0px, 0px) rotate(60deg)}
+  100%{transform: translate(20px, 200px) rotate(85deg)}
 }
 
 .carrier-container {
@@ -1225,4 +1255,340 @@ body {
 }
 .destroyer3 {
   clip-path: polygon(16% 38%, 16% 62%, 34% 70%, 34% 30%);
+}
+
+/**********
+  fire
+**********/
+.fire {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+.flame1 {
+ position: absolute;
+
+        background-color:yellow;
+       border-radius:5%;
+        transform:translateX(-50%)rotate(45deg);
+   animation: fire1Anime 2s infinite linear;
+}
+.flame2 {
+ position: absolute;
+
+        background-color:yellow;
+       border-radius:5%;
+        transform:translateX(-50%)rotate(45deg);
+   animation: fire2Anime 2s infinite linear;
+}
+.flame3 {
+ position: absolute;
+
+        background-color:yellow;
+       border-radius:5%;
+        transform:translateX(-50%)rotate(45deg);
+   animation: fire3Anime 2s infinite linear;
+}
+.flame4 {
+ position: absolute;
+
+        background-color:yellow;
+       border-radius:5%;
+        transform:translateX(-50%)rotate(45deg);
+   animation: fire4Anime 2s infinite linear;
+}
+.flame5 {
+ position: absolute;
+
+        background-color:yellow;
+       border-radius:5%;
+        transform:translateX(-50%)rotate(45deg);
+   animation: fire4Anime 2s infinite linear;
+}
+
+@keyframes fire1Anime {
+ 0% {
+   transform:translateY(50px)rotate(50deg);
+   height:0px;
+   width:0px;
+   border-radius:0%;
+   background-color:#FFDC01;
+ }
+ 20% {
+   transform:translateY(40px)rotate(40deg);
+   height:30px;
+   width:30px;
+   border-radius:5%;
+   background-color:#FFDC01;
+ }
+ 40%{ transform:translateY(30px)rotate(30deg);
+   height:30px;
+   width:30px;
+   border-radius:10%;
+   background-color:#FDAC01;
+ }
+ 60%{ transform:translateY(20px)rotate(20deg);
+   height:20px;
+   width:20px;
+   border-radius:20%;
+   background-color:#FDAC01;
+ }
+ 80%{
+    transform:translateY(10px)rotate(10deg);
+   height:0px;
+   width:0px;
+   border-radius:30%;
+   background-color:#F73B01;
+ }
+}
+@keyframes fire2Anime {
+ 20% {
+   transform:translateY(50px)rotate(50deg);
+   height:0px;
+   width:0px;
+   border-radius:0%;
+   background-color:#FFDC01;
+ }
+ 40% {
+   transform:translateY(40px)rotate(40deg);
+   height:30px;
+   width:30px;
+   border-radius:5%;
+   background-color:#FFDC01;
+ }
+ 60%{ transform:translateY(30px)rotate(30deg);
+   height:30px;
+   width:30px;
+   border-radius:10%;
+   background-color:#FDAC01;
+ }
+ 80%{ transform:translateY(20px)rotate(20deg);
+   height:20px;
+   width:20px;
+   border-radius:20%;
+   background-color:#FDAC01;
+ }
+ 100%{
+    transform:translateY(10px)rotate(10deg);
+   height:0px;
+   width:0px;
+   border-radius:30%;
+   background-color:#F73B01;
+ }
+
+ 
+}
+@keyframes fire3Anime {
+ 40% {
+   transform:translateY(50px)rotate(50deg);
+   height:0px;
+   width:0px;
+   border-radius:0%;
+   background-color:#FFDC01;
+ }
+ 60% {
+   transform:translateY(40px)rotate(40deg);
+   height:30px;
+   width:30px;
+   border-radius:5%;
+   background-color:#FFDC01;
+ }
+ 80%{ transform:translateY(30px)rotate(30deg);
+   height:30px;
+   width:30px;
+   border-radius:10%;
+   background-color:#FDAC01;
+ }
+ 100%{ transform:translateY(20px)rotate(20deg);
+   height:20px;
+   width:20px;
+   border-radius:20%;
+   background-color:#FDAC01;
+ }
+ 00%{ transform:translateY(20px)rotate(20deg);
+   height:20px;
+   width:20px;
+   border-radius:20%;
+   background-color:#FDAC01;
+ }
+ 
+ 20%{
+    transform:translateY(0px)rotate(0deg);
+   height:00px;
+   width:00px;
+   border-radius:30%;
+   background-color:#F73B01;
+ }
+}
+@keyframes fire4Anime {
+ 60% {
+   transform:translateY(50px)rotate(50deg);
+   height:0px;
+   width:0px;
+   border-radius:0%;
+   background-color:#FFDC01;
+ }
+ 80% {
+   transform:translateY(40px)rotate(40deg);
+   height:30px;
+   width:30px;
+   border-radius:5%;
+   background-color:#FFDC01;
+ }
+ 100%{ transform:translateY(30px)rotate(30deg);
+   height:30px;
+   width:30px;
+   border-radius:10%;
+   background-color:#FDAC01;
+ }
+ 00% {
+   transform:translateY(30px)rotate(30deg);
+   height:30px;
+   width:30px;
+   border-radius:10%;
+   background-color:#FDAC01;
+ }
+ 20%{ transform:translateY(20px)rotate(20deg);
+   height:20px;
+   width:20px;
+   border-radius:20%;
+   background-color:#FDAC01;
+ }
+ 40%{
+    transform:translateY(0px)rotate(0deg);
+   height:00px;
+   width:00px;
+   border-radius:30%;
+   background-color:#F73B01;
+ }
+}
+@keyframes fire5Anime {
+ 80% {
+   transform:translateY(50px)rotate(50deg);
+   height:0px;
+   width:0px;
+   border-radius:0%;
+   background-color:#FFDC01;
+ }
+ 100% {
+   transform:translateY(40px)rotate(40deg);
+   height:30px;
+   width:30px;
+   border-radius:5%;
+   background-color:#FFDC01;
+ }
+ 00% {
+   transform:translateY(40px)rotate(40deg);
+   height:30px;
+   width:30px;
+   border-radius:5%;
+   background-color:#FFDC01;
+ }
+ 20%{ transform:translateY(30px)rotate(30deg);
+   height:30px;
+   width:30px;
+   border-radius:10%;
+   background-color:#FDAC01;
+ }
+ 40%{ transform:translateY(20px)rotate(20deg);
+   height:20px;
+   width:20px;
+   border-radius:20%;
+   background-color:#FDAC01;
+ }
+ 60%{
+    transform:translateY(0px)rotate(0deg);
+   height:00px;
+   width:00px;
+   border-radius:30%;
+   background-color:#F73B01;
+ }
+}
+.hole1{
+ transform:translate(-10px, 40px);
+ position: absolute;
+ height:50px;
+ width:50px;
+ background-color:black;
+ clip-path: polygon(50% 17%, 62% 31%, 98% 35%, 73% 58%,   65% 79%, 48% 80%, 23% 85%, 20% 56%, 2% 35%, 30% 29%);
+}
+.hole2{
+ transform:translate(-10px, 40px);
+ position: absolute;
+ height:50px;
+ width:50px;
+ background-color:grey;
+ clip-path: polygon(27% 14%, 66% 13%, 82% 31%, 90% 69%, 69% 85%, 49% 94%, 35% 82%, 14% 82%, 20% 56%, 9% 38%);
+}
+.hole3{
+ transform:translate(-10px, 40px);
+ position: absolute;
+ height:50px;
+ width:50px;
+ background-color:rgb(36, 35, 35);
+ box-shadow: inset 5px 5px black;
+}
+
+/**********
+  cursor
+**********/
+.cursor {
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim .5s infinite alternate;
+  pointer-events: none;
+}
+
+.cursor::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border: 8px solid darkred;
+  border-radius: 50%;
+  opacity: .5;
+  top: -8px;
+  left: -8px;
+  animation: cursorAnim2 .5s infinite alternate;
+}
+
+@keyframes cursorAnim {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(.7);
+  }
+}
+
+@keyframes cursorAnim2 {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(.4);
+  }
+}
+
+@keyframes cursorAnim3 {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(3);
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0;
+  }
+}
+
+.expand {
+  animation: cursorAnim3 .5s forwards;
+  border: 1px solid red;
 }

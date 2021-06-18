@@ -1,9 +1,71 @@
+/*const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+const numBalls = 15;
+let balls = {
+  red : [],
+  orange : [],
+  yellow : []
+}
+for (let i = 0; i < numBalls; i++) {
+  particleCreation("red")
+  particleCreation("yellow")
+  particleCreation("orange")
+}
+
+function particleCreation(partColor){
+  let particle = document.createElement("div");
+  particle.classList.add(partColor);
+  particle.style.left = `50vw`;
+  particle.style.top = `50vh`;
+  particle.style.transform = `scale(${Math.random()})`;
+  particle.style.width = `${Math.random()*20}px`;
+  particle.style.height = particle.style.width;
+  balls[partColor].push(particle);
+  document.body.append(particle);
+
+  balls[partColor].forEach((particle, i, ra) => {
+    let movement = {
+      x:( Math.random() * (50))-25,
+      y: (Math.random() * (50))-25
+    };
+  
+    let anim = particle.animate(
+      [
+        { transform: "translate(0, 0)" },
+        { transform: `translate(${movement.x}px, ${movement.y}px)` },
+      ],
+      {
+        duration: (Math.random() + 1) * 800, // random duration
+        direction: "alternate",
+        fill: "both",
+        iterations: Infinity,
+        easing: "ease-in-out"
+      }
+    );
+  });
+}
+*/
+
+
+const cursor = document.querySelector('.cursor');
 let readyButton = document.querySelector("#all-ready");
 let clearButton = document.querySelector("#clear-board");
 let dropzone = document.querySelector("#dropzone");
 let enemyzone = document.querySelector("#enemyzone");
 let menuzone = document.querySelector("#boats-menu");
+let body =  document.querySelector("body");
 dropzone.addEventListener("drop", drop);
+enemyzone.addEventListener('mouseover',cursorIn)
+enemyzone.addEventListener('mouseleave',cursorOut)
+enemyzone.addEventListener('mousemove', e => {
+  cursor.setAttribute("style", "top: "+(e.pageY - 10)+"px; left: "+(e.pageX - 10)+"px;")
+})
+enemyzone.addEventListener('click', () => {
+  cursor.classList.add("expand");
+
+  setTimeout(() => {
+      cursor.classList.remove("expand");
+  }, 500)
+})
 
 dropzone.addEventListener("dragover", dragOver);
 readyButton.addEventListener("click", allReady);
@@ -23,6 +85,8 @@ let p1Array = cleanArray()
 let p2Array = cleanArray()
 let p1Down = 0;
 let p2Down = 0;
+let p1SinkedBoats = 0;
+let p2SinkedBoats = 0;
 
 let gameVariables = {
   boatsPlaced:0,
@@ -362,6 +426,20 @@ function changeColorBoats(){
     element.classList.add(`p2color`);
 })
 }
+function paintHit(player,shotCell){
+  player.innerHTML += `
+  <div class="fire" style="transform: translate(${(shotCell[0]*50)+10}px, ${(shotCell[1]*50)-40}px)">
+  <div class="hole3"></div>
+  <div class="hole2"></div>
+  <div class="hole1"></div>
+  <div class="flame1"></div>
+  <div class="flame2"></div> 
+  <div class="flame3"></div>
+  <div class="flame4"></div>
+  <div class="flame5"></div>
+</div>
+`
+}
 
 function p1shot(e){
   let abbrs ={
@@ -376,14 +454,33 @@ function p1shot(e){
   let CellValue = p2Array[shotCell[1]][shotCell[0]]
   let p1cells = document.getElementById("enemyzone")
   let hittedBoat = boats[abbrs[CellValue]]
-  p1cells.innerHTML += `<div class="${CellValue}" style="transform: translate(${shotCell[0]*50}px, ${shotCell[1]*50}px)">`
+  
+  //p1cells.innerHTML += `<div class="${CellValue}" style="transform: translate(${shotCell[0]*50}px, ${shotCell[1]*50}px)">`
   if (CellValue!=="w"){
+    paintHit(p1cells,shotCell)
     p1Down++;
     hittedBoat.p1hits++
-    if (hittedBoat.p1hits === hittedBoat.size){console.log("hundido")}
+    if (hittedBoat.p1hits === hittedBoat.size){p2SinkedBoats++; sinkBoat("P2",p2SinkedBoats)}
+  } else {
+    p1cells.innerHTML += `<div class="w" style="transform: translate(${shotCell[0]*50}px, ${shotCell[1]*50}px)">`
   }
   if (p1Down===17){console.log ("p1win")}
   p2shot([Math.round(Math.random()*9),Math.round(Math.random()*9)])
+}
+function sinkBoat(player,target){
+  console.log(target)
+  let boat = document.querySelector(`#battleship-silouette${player}`)
+  boat.classList.add(`sink${target}`)
+
+}
+function cursorIn (){
+  cursor.removeAttribute("style","opacity: 0")
+
+  
+}
+function cursorOut (){
+  cursor.setAttribute("style","opacity: 0")
+  
 }
 
 function p2shot(shotCell){
@@ -395,13 +492,15 @@ function p2shot(shotCell){
     de:"destroyer"
   }
   let CellValue = p1Array[shotCell[1]][shotCell[0]]
-  let p1cells = document.getElementById("dropzone")
+  let p2cells = document.getElementById("dropzone")
   let hittedBoat = boats[abbrs[CellValue]]
-  p1cells.innerHTML += `<div class="${CellValue}" style="transform: translate(${shotCell[0]*50}px, ${shotCell[1]*50}px)">`
   if (CellValue!=="w"){
+    paintHit(p2cells,shotCell)
     p2Down++;
     hittedBoat.p2hits++
-    if (hittedBoat.p2hits === hittedBoat.size){console.log("hundido")}
+    if (hittedBoat.p2hits === hittedBoat.size){p1SinkedBoats++; sinkBoat("P1",p1SinkedBoats)}
+  } else {
+    p2cells.innerHTML += `<div class="w" style="transform: translate(${shotCell[0]*50}px, ${shotCell[1]*50}px)">`
   }
   if (p2Down===17){console.log ("p2win")}
   

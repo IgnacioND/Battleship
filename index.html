@@ -9,12 +9,12 @@
 </head>
 <body>
   <div id="background">
-    <div class="battleship-silouette"></div>
-    <div class="battleship-silouette2"></div>
+    <div id="battleship-silouetteP1"></div>
+    <div id="battleship-silouetteP2"></div>
   </div>
-
+  <div id="balls"></div>
   <div id="top-part">
-    <button id="clear-board">Clear board</button>
+    <div id="clear-board"class="menu-buttons">CLEAR BOARD</div>
     <div id="radar-container">
       <div id="radar-outside"></div>
       <div id="radar-background"></div>
@@ -31,7 +31,7 @@
       <div class="dot dot8"></div>
       <div class="dot dot9"></div>
     </div>
-    <button id="all-ready">All ready</button>
+    <div id="all-ready" class="menu-buttons">ALL READY</div>
   </div>
 
   <div id="bottom-part">
@@ -107,10 +107,14 @@
       </div>
       </div>
     </div>
+    
     <div class="enemy-grid-background";>
+      <div class="cursor" id="cursor"></div>
+      
       <div class="enemy-grid" id="enemyzone";></div>
     </div>
-  </div>>
+    
+  </div>
   
   <script src="indexv2.js"></script>
 </body>
