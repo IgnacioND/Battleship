@@ -185,8 +185,30 @@ body {
   background: #845ec2;
   background: radial-gradient(circle, #845ec2 0%, rgba(0, 0, 0, 1) 100%);
 }
+.w{
+  width: 50px;
+  height: 50px;
+  background: rgba(0,212,255,0.2);
+  position: absolute;
+  z-index: 2;
+  background: 
+    radial-gradient(circle, 
+      rgba(45,250,255,0.4) 0%, 
+      rgba(45,250,255,0.5) 11%, 
+      rgba(45,250,255,0.3) 16%,
+      rgba(45,250,255,0.7) 28%, 
+      rgba(45,250,255,0.4) 33%,
+      rgba(45,250,255,0.3) 47%,
+      rgba(45,250,255,0.4) 65%, 
+      rgba(45,250,255,0) 100%)
+}
 
-
+.ca, .ba, .cr, .su, .de{
+  width: 50px;
+  height: 50px;
+  background-color:red;
+  position: absolute;
+}
 /**********
   BOATS INTERACTION
 **********/
@@ -196,7 +218,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .boat:hover {
   cursor: grab;
 }
@@ -214,22 +235,22 @@ body {
   height: 501px;
   background-image: linear-gradient(
       to right,
-      rgba(23, 54, 87, 1) 2px,
+      #4a0f52 2px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgba(23, 54, 87, 1) 2px, transparent 1px);
+    linear-gradient(to bottom, #4a0f52 2px, transparent 1px);
 }
 .user-grid-background {
   box-sizing: content-box;
   width: 501px;
   height: 501px;
-  border: 10px rgba(23, 54, 87, 1) solid;
+  border: 10px #321364 solid;
   border-radius: 20px;
   background: #845ec2;
   background: radial-gradient(
     circle,
-    rgba(185, 214, 214, 1) 0%,
-    rgba(51, 131, 148, 1) 100%
+    rgb(163, 143, 231) 0%,
+    rgb(110, 128, 209) 100%
   );
 
 }
@@ -239,22 +260,22 @@ body {
   height: 501px;
   background-image: linear-gradient(
       to right,
-      rgba(23, 54, 87, 1) 2px,
+      #532833 2px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgba(23, 54, 87, 1) 2px, transparent 1px);
+    linear-gradient(to bottom, #532833 2px, transparent 1px);
 }
 .enemy-grid-background {
   box-sizing: content-box;
   width: 501px;
   height: 501px;
-  border: 10px rgba(23, 54, 87, 1) solid;
+  border: 10px rgb(116, 52, 52) solid;
   border-radius: 20px;
-  background: #845ec2;
+  background: #b3556d;
   background: radial-gradient(
     circle,
-    rgba(185, 214, 214, 1) 0%,
-    rgba(51, 131, 148, 1) 100%
+    rgba(252, 181, 159, 1) 0%,
+      rgba(204, 120, 120, 1) 100%
   );
 }
 
@@ -262,333 +283,15 @@ body {
 /**********
   BOATS
 **********/
+.p1color{
+  background-color: #7955b3
+}
+.p2color{
+  background-color: #b3556d
+}
 
 .shadow {
   filter: drop-shadow(8px 5px 6px rgba(7, 1, 10, 0.5));
-}
-
-.carrier-container {
-  transform: translate(25px, 60px);
-  position: absolute;
-  width: 250px;
-  height: 50px;
-
-}
-.carrier-containerR {
-  transform: translate(50px, 60px);
-  position: absolute;
-  width: 50px;
-  height: 250px;
-
-}
-.carrierR {
-  transform: rotate(90deg);
-  position: relative;
-  width: 250px;
-  height: 50px;
-  transform-origin: 10% 50%;
-}
-.carrier {
-  position: relative;
-  width: 250px;
-  height: 50px;
-
-  
-}
-.carrier-part {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.carrier-base {
-  background-color: #3b2957;
-  clip-path: polygon(
-    4% 34%,
-    2% 34%,
-    2% 62%,
-    4% 72%,
-    4% 86%,
-    23% 87%,
-    24% 90%,
-    24% 97%,
-    26% 97%,
-    26% 94%,
-    26% 88%,
-    27% 88%,
-    27% 96%,
-    29% 97%,
-    30% 90%,
-    35% 88%,
-    36% 93%,
-    38% 88%,
-    40% 87%,
-    45% 89%,
-    46% 86%,
-    67% 87%,
-    74% 71%,
-    74% 78%,
-    77% 78%,
-    79% 70%,
-    97% 64%,
-    97% 38%,
-    91% 36%,
-    91% 34%,
-    81% 32%,
-    80% 26%,
-    77% 27%,
-    76% 31%,
-    75% 31%,
-    67% 8%,
-    57% 8%,
-    57% 7%,
-    55% 7%,
-    55% 13%,
-    49% 14%,
-    49% 10%,
-    48% 11%,
-    48% 13%,
-    47% 13%,
-    47% 12%,
-    45% 12%,
-    44% 13%,
-    44% 10%,
-    43% 9%,
-    43% 13%,
-    41% 12%,
-    41% 15%,
-    40% 15%,
-    40% 12%,
-    33% 12%,
-    33% 11%,
-    33% 7%,
-    32% 13%,
-    31% 8%,
-    26% 8%,
-    23% 15%,
-    15% 15%,
-    14% 13%,
-    11% 13%,
-    11% 18%,
-    8% 18%,
-    8% 19%,
-    4% 19%
-  );
-}
-.carrier-platform {
-  background-color: #5c4188;
-  clip-path: polygon(
-    2% 36%,
-    2% 59%,
-    3% 72%,
-    6% 72%,
-    6% 86%,
-    25% 86%,
-    25% 83%,
-    27% 78%,
-    28% 77%,
-    29% 80%,
-    31% 81%,
-    31% 86%,
-    39% 86%,
-    39% 71%,
-    45% 71%,
-    45% 86%,
-    54% 85%,
-    54% 71%,
-    60% 71%,
-    60% 86%,
-    67% 86%,
-    74% 69%,
-    96% 62%,
-    96% 39%,
-    75% 32%,
-    66% 9%,
-    58% 9%,
-    53% 15%,
-    43% 15%,
-    43% 13%,
-    41% 12%,
-    41% 15%,
-    32% 16%,
-    31% 12%,
-    25% 11%,
-    23% 15%,
-    21% 14%,
-    21% 30%,
-    15% 30%,
-    16% 15%,
-    11% 15%,
-    10% 32%
-  );
-}
-.carrier-lines1 {
-  transform: rotate(-10deg) scaleX(0.65) translate(-55px, 15px);
-  border: yellow dashed 1px;
-}
-.carrier-lines2 {
-  transform: rotate(-10deg) scaleX(0.6) translate(-80px, 5px);
-  border: grey solid 2px;
-}
-.carrier-lines3 {
-  transform: rotate(-10deg) scaleX(0.67) translate(-42px, 15px);
-  border: grey solid 2px;
-}
-
-.battleship-container {
-  transform: translate(50px,110px);
-  position: absolute;
-  width: 200px;
-  height: 50px;
-}
-.battleship-containerR {
-  transform: translate(50px, 110px);
-  position: absolute;
-  width: 50px;
-  height: 200px;
-}
-.battleship {
-  position: relative;
-  width: 200px;
-  height: 50px;
-}
-.battleshipR {
-  transform: rotate(90deg);
-  position: relative;
-  width: 200px;
-  height: 50px;
-  transform-origin: 12.50% 50%;
-}
-.battleship-part {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.battleship-base {
-  background-color: #3b2957;
-  clip-path: polygon(
-    1% 15%,
-    1% 85%,
-    65% 85%,
-    76% 79%,
-    85% 72%,
-    99% 52%,
-    99% 48%,
-    85% 28%,
-    76% 21%,
-    65% 15%
-  );
-}
-.battleship-helicopter {
-  background-color: #583e81;
-  clip-path: polygon(
-    0% 49%,
-    3% 49%,
-    3% 42%,
-    4% 42%,
-    5% 49%,
-    7% 49%,
-    8% 47%,
-    9% 46%,
-    6% 22%,
-    7% 20%,
-    10% 45%,
-    12% 45%,
-    15% 23%,
-    16% 24%,
-    13% 45%,
-    14% 46%,
-    15% 50%,
-    14% 54%,
-    13% 55%,
-    16% 76%,
-    15% 77%,
-    12% 55%,
-    10% 55%,
-    7% 80%,
-    6% 78%,
-    9% 54%,
-    8% 53%,
-    7% 51%,
-    5% 51%,
-    4% 58%,
-    3% 58%,
-    3% 51%,
-    0% 51%
-  );
-}
-.battleship-heliport {
-  background-color: #49326b;
-  clip-path: polygon(3% 20%, 3% 80%, 18% 80%, 18% 20%);
-}
-.battleship-cover {
-  background-color: #593f83;
-  clip-path: polygon(
-    20% 25%,
-    20% 75%,
-    30% 75%,
-    30% 70%,
-    36% 70%,
-    39% 65%,
-    39% 35%,
-    36% 30%,
-    30% 30%,
-    30% 25%
-  );
-}
-.battleship-antena {
-  background-color: #61458f;
-  clip-path: polygon(
-    50% 25%,
-    49% 43%,
-    48% 45%,
-    48% 55%,
-    49% 57%,
-    50% 75%,
-    51% 75%,
-    52% 60%,
-    56% 60%,
-    57% 75%,
-    61% 75%,
-    64% 68%,
-    64% 32%,
-    61% 25%,
-    57% 25%,
-    56% 40%,
-    52% 40%,
-    51% 25%,
-    50% 25%,
-    49% 43%
-  );
-}
-.battleship-front {
-  background-color: #5c4188;
-  clip-path: polygon(
-    65% 20%,
-    64% 24%,
-    73% 40%,
-    73% 60%,
-    64% 76%,
-    65% 80%,
-    74% 78%,
-    85% 68%,
-    85% 32%,
-    74% 22%
-  );
-}
-.battleship-cannon {
-  background-color: #7e59b9;
-  clip-path: polygon(
-    90% 47%,
-    90% 53%,
-    80% 55%,
-    80% 65%,
-    76% 65%,
-    75% 60%,
-    75% 40%,
-    76% 35%,
-    80% 35%,
-    80% 45%
-  );
 }
 .battleship-silouette {
   margin: 0;
@@ -598,7 +301,6 @@ body {
   transform: translateY(-70%) translateX(50%);
   width: 400px;
   height: 100px;
-  background-color: #7e59b9;
   background: linear-gradient(#100b18 80%, #9ab7b8 81%);
   clip-path: polygon(
     6% 64%,
@@ -789,7 +491,6 @@ body {
 
   width: 400px;
   height: 100px;
-  background-color: #7e59b9;
   background: linear-gradient(#100b18 88%, #9ab7b8 81%);
   clip-path: polygon(
     2% 73%,
@@ -931,6 +632,330 @@ body {
   );
 }
 
+.carrier-container {
+  transform: translate(25px, 60px);
+  position: absolute;
+  width: 250px;
+  height: 50px;
+
+}
+.carrier-containerR {
+  transform: translate(50px, 60px);
+  position: absolute;
+  width: 50px;
+  height: 250px;
+
+}
+.carrierR {
+  transform: rotate(90deg);
+  position: relative;
+  width: 250px;
+  height: 50px;
+  transform-origin: 10% 50%;
+}
+.carrier {
+  position: relative;
+  width: 250px;
+  height: 50px;
+
+  
+}
+.carrier-part {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.carrier-base {
+  filter: brightness(0.6);
+  clip-path: polygon(
+    4% 34%,
+    2% 34%,
+    2% 62%,
+    4% 72%,
+    4% 86%,
+    23% 87%,
+    24% 90%,
+    24% 97%,
+    26% 97%,
+    26% 94%,
+    26% 88%,
+    27% 88%,
+    27% 96%,
+    29% 97%,
+    30% 90%,
+    35% 88%,
+    36% 93%,
+    38% 88%,
+    40% 87%,
+    45% 89%,
+    46% 86%,
+    67% 87%,
+    74% 71%,
+    74% 78%,
+    77% 78%,
+    79% 70%,
+    97% 64%,
+    97% 38%,
+    91% 36%,
+    91% 34%,
+    81% 32%,
+    80% 26%,
+    77% 27%,
+    76% 31%,
+    75% 31%,
+    67% 8%,
+    57% 8%,
+    57% 7%,
+    55% 7%,
+    55% 13%,
+    49% 14%,
+    49% 10%,
+    48% 11%,
+    48% 13%,
+    47% 13%,
+    47% 12%,
+    45% 12%,
+    44% 13%,
+    44% 10%,
+    43% 9%,
+    43% 13%,
+    41% 12%,
+    41% 15%,
+    40% 15%,
+    40% 12%,
+    33% 12%,
+    33% 11%,
+    33% 7%,
+    32% 13%,
+    31% 8%,
+    26% 8%,
+    23% 15%,
+    15% 15%,
+    14% 13%,
+    11% 13%,
+    11% 18%,
+    8% 18%,
+    8% 19%,
+    4% 19%
+  );
+}
+.carrier-platform {
+  filter: brightness(0.8);
+  clip-path: polygon(
+    2% 36%,
+    2% 59%,
+    3% 72%,
+    6% 72%,
+    6% 86%,
+    25% 86%,
+    25% 83%,
+    27% 78%,
+    28% 77%,
+    29% 80%,
+    31% 81%,
+    31% 86%,
+    39% 86%,
+    39% 71%,
+    45% 71%,
+    45% 86%,
+    54% 85%,
+    54% 71%,
+    60% 71%,
+    60% 86%,
+    67% 86%,
+    74% 69%,
+    96% 62%,
+    96% 39%,
+    75% 32%,
+    66% 9%,
+    58% 9%,
+    53% 15%,
+    43% 15%,
+    43% 13%,
+    41% 12%,
+    41% 15%,
+    32% 16%,
+    31% 12%,
+    25% 11%,
+    23% 15%,
+    21% 14%,
+    21% 30%,
+    15% 30%,
+    16% 15%,
+    11% 15%,
+    10% 32%
+  );
+}
+.carrier-lines1 {
+  transform: rotate(-10deg) scaleX(0.65) translate(-55px, 15px);
+  border: yellow dashed 1px;
+}
+.carrier-lines2 {
+  transform: rotate(-10deg) scaleX(0.6) translate(-80px, 5px);
+  border: grey solid 2px;
+}
+.carrier-lines3 {
+  transform: rotate(-10deg) scaleX(0.67) translate(-42px, 15px);
+  border: grey solid 2px;
+}
+
+.battleship-container {
+  transform: translate(50px,110px);
+  position: absolute;
+  width: 200px;
+  height: 50px;
+}
+.battleship-containerR {
+  transform: translate(50px, 110px);
+  position: absolute;
+  width: 50px;
+  height: 200px;
+}
+.battleship {
+  position: relative;
+  width: 200px;
+  height: 50px;
+}
+.battleshipR {
+  transform: rotate(90deg);
+  position: relative;
+  width: 200px;
+  height: 50px;
+  transform-origin: 12.50% 50%;
+}
+.battleship-part {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.battleship-base {
+  filter: brightness(0.6);
+  clip-path: polygon(
+    1% 15%,
+    1% 85%,
+    65% 85%,
+    76% 79%,
+    85% 72%,
+    99% 52%,
+    99% 48%,
+    85% 28%,
+    76% 21%,
+    65% 15%
+  );
+}
+.battleship-heliport {
+  filter: brightness(0.7);
+  clip-path: polygon(3% 20%, 3% 80%, 18% 80%, 18% 20%);
+}
+.battleship-front {
+  filter: brightness(0.7);
+  clip-path: polygon(
+    65% 20%,
+    64% 24%,
+    73% 40%,
+    73% 60%,
+    64% 76%,
+    65% 80%,
+    74% 78%,
+    85% 68%,
+    85% 32%,
+    74% 22%
+  );
+}
+.battleship-cover {
+  filter: brightness(0.8);
+  clip-path: polygon(
+    20% 25%,
+    20% 75%,
+    30% 75%,
+    30% 70%,
+    36% 70%,
+    39% 65%,
+    39% 35%,
+    36% 30%,
+    30% 30%,
+    30% 25%
+  );
+}
+.battleship-helicopter {
+  filter: brightness(0.9);
+  clip-path: polygon(
+    0% 49%,
+    3% 49%,
+    3% 42%,
+    4% 42%,
+    5% 49%,
+    7% 49%,
+    8% 47%,
+    9% 46%,
+    6% 22%,
+    7% 20%,
+    10% 45%,
+    12% 45%,
+    15% 23%,
+    16% 24%,
+    13% 45%,
+    14% 46%,
+    15% 50%,
+    14% 54%,
+    13% 55%,
+    16% 76%,
+    15% 77%,
+    12% 55%,
+    10% 55%,
+    7% 80%,
+    6% 78%,
+    9% 54%,
+    8% 53%,
+    7% 51%,
+    5% 51%,
+    4% 58%,
+    3% 58%,
+    3% 51%,
+    0% 51%
+  );
+}
+.battleship-antena {
+  clip-path: polygon(
+    50% 25%,
+    49% 43%,
+    48% 45%,
+    48% 55%,
+    49% 57%,
+    50% 75%,
+    51% 75%,
+    52% 60%,
+    56% 60%,
+    57% 75%,
+    61% 75%,
+    64% 68%,
+    64% 32%,
+    61% 25%,
+    57% 25%,
+    56% 40%,
+    52% 40%,
+    51% 25%,
+    50% 25%,
+    49% 43%
+  );
+}
+.battleship-cannon {
+  filter: brightness(0.9);
+  clip-path: polygon(
+    90% 47%,
+    90% 53%,
+    80% 55%,
+    80% 65%,
+    76% 65%,
+    75% 60%,
+    75% 40%,
+    76% 35%,
+    80% 35%,
+    80% 45%
+  );
+}
+
+
 .cruiser-container{
   transform: translate(75px,160px);
   position: absolute;
@@ -961,7 +986,7 @@ body {
   height: 100%;
 }
 .cruiser1 {
-  background-color: #3b2957;
+  filter: brightness(0.6);
   clip-path: polygon(
     4% 32%,
     4% 68%,
@@ -991,7 +1016,7 @@ body {
   );
 }
 .cruiser2 {
-  background-color: #49326b;
+  filter: brightness(0.7);
   clip-path: polygon(
     12% 24%,
     12% 49%,
@@ -1012,7 +1037,7 @@ body {
   );
 }
 .cruiser3 {
-  background-color: #593f83;
+  filter: brightness(0.8);
   clip-path: polygon(
     30% 26%,
     33% 32%,
@@ -1029,7 +1054,7 @@ body {
   );
 }
 .cruiser4 {
-  background-color: #6f4fa3;
+  filter: brightness(0.9);
   clip-path: polygon(
     55% 31%,
     57% 43%,
@@ -1075,7 +1100,7 @@ body {
   height: 100%;
 }
 .submarine1 {
-  background-color: #3b2957;
+  filter: brightness(0.6);
   clip-path: polygon(
     94% 41%,
     91% 36%,
@@ -1117,7 +1142,7 @@ body {
   );
 }
 .submarine2 {
-  background-color: #674899;
+  filter: brightness(0.9);
   clip-path: polygon(
     78% 40%,
     74% 38%,
@@ -1131,6 +1156,7 @@ body {
     80% 50%
   );
 }
+
 
 .destroyer-container {
   transform: translate(100px,260px);
@@ -1162,8 +1188,9 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .destroyer1 {
-  background-color: #271b3a;
+  filter: brightness(0.6);
   clip-path: polygon(
     14% 30%,
     9% 35%,
@@ -1182,7 +1209,7 @@ body {
   );
 }
 .destroyer2 {
-  background-color: #5f438d;
+  filter: brightness(0.8);
   clip-path: polygon(
     35% 30%,
     35% 70%,
@@ -1197,6 +1224,5 @@ body {
   );
 }
 .destroyer3 {
-  background-color: #7955b3;
   clip-path: polygon(16% 38%, 16% 62%, 34% 70%, 34% 30%);
 }
