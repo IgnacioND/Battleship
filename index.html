@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="background">
-    <div id="battleship-silouetteP1"></div>
-    <div id="battleship-silouetteP2"></div>
-  </div>
+
+  <div class="main-container">
   <div id="balls"></div>
   <div id="top-part">
     <div id="clear-board"class="menu-buttons">CLEAR BOARD</div>
@@ -33,9 +31,14 @@
     </div>
     <div id="all-ready" class="menu-buttons">ALL READY</div>
   </div>
-
+  <div class="silouetes">
+    <div id="battleship-silouetteP1"></div>
+    <div id="battleship-silouetteP2"></div>
+  </div>
   <div id="bottom-part">
     <div class="user-grid-background ";>
+      <div class="boats-here">DRAG HERE <br>
+        YOUR BOATS</div>
       <div class="user-grid" id="dropzone";></div>
     </div>
     <div class="menu" id='boats-menu'>
@@ -113,9 +116,9 @@
       
       <div class="enemy-grid" id="enemyzone";></div>
     </div>
-    
-  </div>
+</div>
+</div>
   
-  <script src="indexv2.js"></script>
+  <script src="indexv3.js"></script>
 </body>
 </html>
